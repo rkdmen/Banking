@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint src",
     "start": "node server.js",
-    "test": "mocha -w test/helpers/browser.js test/*.spec.js"
+    "test": "mocha -w tests/helpers/browser.js tests/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -37,14 +37,15 @@
     "jsdom": "^9.11.0",
     "mocha": "^3.2.0",
     "node-sass": "3.8.0",
+    "react-addons-test-utils": "^15.4.2",
     "sass-loader": "4.0.0",
     "style-loader": "0.13.1",
     "webpack": "1.13.1",
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
-    "react": "15.2.1",
-    "react-dom": "15.2.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
     "react-router": "^3.0.2",
     "react-router-redux": "^4.0.8",
