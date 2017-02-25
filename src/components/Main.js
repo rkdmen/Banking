@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 // import SidebarLeftOverlay from './Sidebar';
-import TransactionOverview from './TransactionOverview';
+import TransactionOverview from './Transaction/TransactionOverview';
+import TransactionDepositWithdraw from './Transaction/TransactionDepositWithdraw';
 import { Grid, Button } from 'semantic-ui-react'
 
 class Main extends Component {
@@ -12,8 +13,7 @@ class Main extends Component {
           </div>
         <Grid.Row columns={2}>
           <Grid.Column className='deposit-withdraw'>
-            <Button>Deposit</Button>
-            <Button>Withdraw</Button>
+            <TransactionDepositWithdraw />
           </Grid.Column>
           <Grid.Column>
             <div>Overview</div>
