@@ -1,30 +1,65 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import { Header, Table } from 'semantic-ui-react'
 import { connect } from 'react-redux';
-import {  } from '../actions/actions';
+import { getBalance } from '../../actions/actions';
+import Overview from '../../components/Transaction/Overview';
 
-export class OverviewContainer extends Component {
+class OverviewContainer extends Component {
   constructor(props) {
     super(props);
    }
 
-
+  componentDidMount() {
+      console.log('getting balance');
+      this.props.getBalance();
+  }
 
   render() {
+    console.log(this.props, ' THIS.PROP TRANSACTIONOVERVIEW')
     return (
-      <div>
-      </div>
+                <Table celled padded>
+
+            <Table.Header className='forDesktop'>
+              <Table.Row>
+                <Table.HeaderCell textAlign='center' singleLine>Date</Table.HeaderCell>
+                <Table.HeaderCell textAlign='center' singleLine>Description</Table.HeaderCell>
+                <Table.HeaderCell textAlign='center' singleLine>Amount</Table.HeaderCell>
+                <Table.HeaderCell textAlign='center' singleLine>Available Balance</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+
+            <Table.Body>
+        {
+          this.props.balanceHistory.history.map((acc, i)=>{
+            return (<Overview
+              key={i}
+              amount={acc.amount}
+              balance={acc.balance}
+              date={acc.date}
+              desc={acc.desc}
+            />
+            )
+          })
+        }
+
+            </Table.Body>
+
+          </Table>
       )
   }
 }
 
+
 function mapStateToProps(state) {
+  console.log(state ,  ' state OverviewContainer')
   return {
+    balanceHistory: state.reducer.balanceData.accData
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({  }, dispatch);
+  return bindActionCreators({ getBalance }, dispatch);
 }
 
 

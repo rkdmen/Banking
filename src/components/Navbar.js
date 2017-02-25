@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Router, Link, hashHistory } from 'react-router';
-import { Input, Menu, Segment } from 'semantic-ui-react'
+import { Input, Menu, Segment, Icon } from 'semantic-ui-react'
 
 class Navbar extends Component {
     constructor() {
@@ -23,12 +23,12 @@ class Navbar extends Component {
     return (
       <div>
         <Menu pointing>
-          <Menu.Item className='main-header navLink' header>Kus<span>Bank</span></Menu.Item>
+          <Menu.Item className='main-header navLink' header><Icon name='diamond'></Icon>Kus<span>Bank</span></Menu.Item>
           <Menu.Item className='navLink' name='overview' active={activeItem === 'overview'} onClick={this.handleItemClick} />
           <Menu.Item className='navLink' name='bills' active={activeItem === 'bills'} onClick={this.handleItemClick} />
           <Menu.Item className='navLink' name='transfer' active={activeItem === 'transfer'} onClick={this.handleItemClick} />
           <Menu.Menu className='navLink' position='right'>
-            <Menu.Item>
+            <Menu.Item className='forDesktop'>
               <Input icon='search' placeholder='Search...' />
             </Menu.Item>
           </Menu.Menu>

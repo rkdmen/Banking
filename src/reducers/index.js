@@ -3,7 +3,7 @@ import { transaction_reducer } from './transaction_Reducer';
 
 
 const rootReducer = combineReducers({
-  testing: transaction_reducer
+  balanceData: transaction_reducer
 });
 
 export default rootReducer;
