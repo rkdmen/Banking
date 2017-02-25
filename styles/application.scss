@@ -1,7 +1,33 @@
-// This is the top-level scss file. Import all other files in here.
-@import 'home';
+// This is the top-level scss file.
+// Mixins
+@import './mixins/mixins';
 
-.testing {
-  height:100% !important;
-  // position:absolute;
+// Modules
+@import './modules/normalize';
+@import './modules/variables';
+
+// Partials
+@import './partials/navbar';
+@import './partials/overview';
+
+
+
+//Global
+.emptySpace {
+    width:100%;
+    height:10px;
+    clear:both;
 }
+
+.forMobile {
+  @media #{$mq-m, $mq-lg, $mq-xlg}{
+    display:none !important;
+  }
+}
+
+.forDesktop {
+  @media #{$mq-xs, $mq-sm}{
+    display:none !important;
+  }
+}
+
