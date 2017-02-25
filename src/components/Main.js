@@ -1,17 +1,30 @@
 import React, {Component} from 'react';
-import { Button } from 'semantic-ui-react'
+// import SidebarLeftOverlay from './Sidebar';
+import TransactionOverview from './TransactionOverview';
+import { Grid, Button } from 'semantic-ui-react'
 
 class Main extends Component {
   render(){
     return (
-          <div className="main-container ui two column grid container">
-            <div className="two wide column">
-            </div>
-            <div className="fourteen wide column">
-              <h1>Main.js loaded</h1>
-              <Button> Testing </Button>
-            </div>
+      <Grid divided='vertically'>
+          <div className="sixteen wide column">
+            <h1>Account Overview</h1>
           </div>
+        <Grid.Row columns={2}>
+          <Grid.Column className='deposit-withdraw'>
+            <Button>Deposit</Button>
+            <Button>Withdraw</Button>
+          </Grid.Column>
+          <Grid.Column>
+            <div>Overview</div>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row columns={1}>
+          <Grid.Column className=''>
+            <TransactionOverview />
+          </Grid.Column>
+        </Grid.Row>
+       </Grid>
       )
   }
 }

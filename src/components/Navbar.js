@@ -5,7 +5,7 @@ import { Input, Menu, Segment } from 'semantic-ui-react'
 class Navbar extends Component {
     constructor() {
     super();
-    this.state = { activeItem: 'Overview' }
+    this.state = { activeItem: 'overview' }
     this.handleItemClick = this.handleItemClick.bind(this);
   }
 
@@ -23,11 +23,11 @@ class Navbar extends Component {
     return (
       <div>
         <Menu pointing>
-          <Menu.Item className='main-header' header>Kus<span>Bank</span></Menu.Item>
-          <Menu.Item name='overview' active={activeItem === 'Overview'} onClick={this.handleItemClick} />
-          <Menu.Item name='bills' active={activeItem === 'Bill Pays'} onClick={this.handleItemClick} />
-          <Menu.Item name='transfer' active={activeItem === 'Transfer money'} onClick={this.handleItemClick} />
-          <Menu.Menu position='right'>
+          <Menu.Item className='main-header navLink' header>Kus<span>Bank</span></Menu.Item>
+          <Menu.Item className='navLink' name='overview' active={activeItem === 'overview'} onClick={this.handleItemClick} />
+          <Menu.Item className='navLink' name='bills' active={activeItem === 'bills'} onClick={this.handleItemClick} />
+          <Menu.Item className='navLink' name='transfer' active={activeItem === 'transfer'} onClick={this.handleItemClick} />
+          <Menu.Menu className='navLink' position='right'>
             <Menu.Item>
               <Input icon='search' placeholder='Search...' />
             </Menu.Item>

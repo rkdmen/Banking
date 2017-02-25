@@ -6,6 +6,13 @@ class Bills extends Component {
     return (
           <div className="main-container ui two column grid container">
             <div className="two wide column">
+              <div>
+                list of acc...
+              </div>
+              <div>
+                list of acc...
+              </div>
+
             </div>
             <div className="fourteen wide column">
               <h1>bill.js loaded</h1>

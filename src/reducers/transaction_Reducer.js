@@ -1,6 +1,6 @@
 // import * as type from '../constants/ActionTypes';
 
-export function sample_reducer(state = {}, action) {
+export function transaction_reducer(state = {}, action) {
     switch (action.type) {
 
       case 'constant':

@@ -4,8 +4,8 @@ import { Route, IndexRoute } from 'react-router';
 //Components
 import App from './components/App';
 import Main from './components/Main';
-import Bills from './components/Bills';
-import Transfer from './components/Transfer';
+import Bills from './components/Bills/Bills';
+import Transfer from './components/Transfer/Transfer';
 
 export default (
     <Route path="/" component={App}>
