@@ -1,25 +1,35 @@
 import * as type from '../constants/ActionTypes';
 let initialState = require('../data/acc-data.js');
+import { hashCode } from '../helper/helper';
 
 export function transaction_reducer(state = initialState, action) {
-    console.log(state, ' initData')
+    let unixTime = Math.round((new Date()).getTime() / 1000);
     switch (action.type) {
 
       case type.MAKE_DEPOSIT:
-        console.log(state, 'state MAKE_DEPOSIT REDUCER')
-        console.log(action, 'action MAKE_DEPOSIT REDUCER')
+        let newTrans = {
+          id:hashCode('D', unixTime),
+          amount: parseFloat(action.payload),
+          balance: parseFloat(action.payload) + parseFloat(state.accData.account.checking[0].balance),
+          date: parseFloat(unixTime),
+          desc: 'Deposit'
+        }
         return Object.assign({}, state, {
           accData: {
             account: {
-              checking: [action.payload, ...state.accData.account.checking]
+              checking: [newTrans, ...state.accData.account.checking]
             }
           }
         });
 
-
       case type.WITHDRAW_DEPOSIT:
-        console.log(state, 'state WITHDRAW_DEPOSIT REDUCER')
-        console.log(action, 'action WITHDRAW_DEPOSIT REDUCER')
+        let newTrans = {
+          id:hashCode('W', unixTime),
+          amount: parseFloat(action.payload),
+          balance: parseFloat(action.payload) - parseFloat(state.accData.account.checking[0].balance),
+          date: parseFloat(unixTime),
+          desc: 'Withdraw'
+        }
         return Object.assign({}, state, {
           accData: {
             account: {
@@ -29,7 +39,6 @@ export function transaction_reducer(state = initialState, action) {
         });
 
       case type.GET_BALANCE:
-        console.log(state, 'GET BALANCE REDUCER')
         let totalDepositFilter = state.accData.account.checking.filter(item => item.desc ==='Deposit').map(d => d.amount);
         let totalWithdrawFilter = state.accData.account.checking.filter(item => item.desc ==='Withdraw').map(w => w.amount);
         let totalDep = totalDepositFilter.reduce((a,b) => a+b)
@@ -37,7 +46,6 @@ export function transaction_reducer(state = initialState, action) {
         return Object.assign({}, state, {
           totalBalance: totalDep - totalWith
         });
-
 
       default:
           return state;

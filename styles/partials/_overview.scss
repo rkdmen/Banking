@@ -9,7 +9,12 @@
   button {
     margin-left:5px !important;
   }
+}
 
+tr {
+  &:hover {
+    background-color: #D4E3CC;
+  }
 }
 
 .greenDeposit {

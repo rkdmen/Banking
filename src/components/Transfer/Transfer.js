@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Button } from 'semantic-ui-react'
+import MiniOverviewContainer from '../../containers/Overview/MiniOverviewContainer';
 
 class Transfer extends Component {
   render(){

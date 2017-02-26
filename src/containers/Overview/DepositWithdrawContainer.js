@@ -12,8 +12,7 @@ class DepositWithdrawContainer extends Component {
     this.deposit = this.deposit.bind(this);
     this.withdraw = this.withdraw.bind(this);
     this.state = {
-      amount:0,
-      currentTime: Math.round((new Date()).getTime() / 1000)
+      amount:0
     }
   }
 
@@ -33,16 +32,8 @@ class DepositWithdrawContainer extends Component {
   }
 
   deposit(){
-    let currentBalance = document.getElementsByClassName('miniOverviewBalance')[1].innerText;
-    let data = {
-      id:hashCode('D', this.state.currentTime),
-      amount: parseFloat(this.state.amount),
-      balance: parseFloat(currentBalance)+parseFloat(this.state.amount),
-      date: parseFloat(this.state.currentTime),
-      desc: 'Deposit'
-    }
     if(!isNaN(this.state.amount)  && this.state.amount > 0 ){
-      this.props.makeDeposit(data);
+      this.props.makeDeposit(parseFloat(this.state.amount));
       this.props.getBalance();
       let inputs = document.getElementsByTagName('input');
       this.setState({amount:0})
@@ -52,13 +43,6 @@ class DepositWithdrawContainer extends Component {
 
   withdraw(){
     let currentBalance = document.getElementsByClassName('miniOverviewBalance')[1].innerText;
-    let data = {
-      id:hashCode('W',this.state.currentTime),
-      amount: parseFloat(this.state.amount),
-      balance: parseFloat(currentBalance)-parseFloat(this.state.amount),
-      date: parseFloat(this.state.currentTime),
-      desc: 'Withdraw'
-    }
     if(parseFloat(currentBalance) <= 0 || parseFloat(this.state.amount) > parseFloat(currentBalance)){
       let el = document.getElementsByClassName('warningRed');
       el[0].innerText = 'Not enough balance'
@@ -76,7 +60,6 @@ class DepositWithdrawContainer extends Component {
   }
 
   render(){
-    console.log(this.props, ' this prop transaction')
     return (
         <div className='inputContainer'>
           <div className='warningRed hideWarning center'>&nbsp;</div>

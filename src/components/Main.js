@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-// import SidebarLeftOverlay from './Sidebar';
+import { Container, Grid, Segment } from 'semantic-ui-react';
 import OverviewContainer from '../containers/Overview/OverviewContainer';
 import MiniOverviewContainer from '../containers/Overview/MiniOverviewContainer';
 import DepositWithdrawContainer from '../containers/Overview/DepositWithdrawContainer';
-import { Container, Grid, Segment } from 'semantic-ui-react';
 
 class Main extends Component {
   render(){

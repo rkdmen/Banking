@@ -10,13 +10,8 @@ class OverviewContainer extends Component {
     super(props);
    }
 
-  // componentDidMount() {
-  //     console.log('getting balance');
-  //     this.props.getBalance();
-  // }
 
   render() {
-    console.log(this.props.balanceHistory, ' THIS.PROP OverviewContainer')
     return (
           <Table celled padded>
             <Table.Header className='forDesktop'>
@@ -50,7 +45,6 @@ class OverviewContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state , 'mapstate balance history!')
   return {
     balanceHistory: state.reducer.balanceData.accData.account.checking
   }

@@ -14,7 +14,6 @@ class MiniOverviewContainer extends Component {
     }
 
     render(){
-      console.log(this.props, ' this prop MINIOVERVIEWContainer')
       return(
         <div>
           <Header as='h3' textAlign='center'>
@@ -35,7 +34,6 @@ class MiniOverviewContainer extends Component {
 
 
 function mapStateToProps(state) {
-  console.log(state , ' map state MINI')
   return {
     totalBalance: state.reducer.balanceData.totalBalance
   }

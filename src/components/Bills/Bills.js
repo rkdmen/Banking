@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Button } from 'semantic-ui-react'
+import { Button, Segment, Input } from 'semantic-ui-react'
+import MiniOverviewContainer from '../../containers/Overview/MiniOverviewContainer';
 
 class Bills extends Component {
   render(){
@@ -16,7 +17,16 @@ class Bills extends Component {
             </div>
             <div className="fourteen wide column">
               <h1>bill.js loaded</h1>
-              <Button> Testing </Button>
+              <Segment style={{maxWidth:'347.5px',maxHeight:'130px'}}>
+                <MiniOverviewContainer />
+              </Segment>
+              <Segment>
+                acc0
+              </Segment>
+              <Segment>
+                acc1
+              </Segment>
+
             </div>
           </div>
       )
