@@ -17,7 +17,6 @@ class OverviewContainer extends Component {
 
   render() {
     console.log(this.props.balanceHistory, ' THIS.PROP OverviewContainer')
-    console.log(Array.isArray(this.props.balanceHistory), '  OverviewContainer')
     return (
           <Table celled padded>
             <Table.Header className='forDesktop'>

@@ -6,17 +6,26 @@ export function transaction_reducer(state = initialState, action) {
     switch (action.type) {
 
       case type.MAKE_DEPOSIT:
-        console.log(state, 'MAKE_DEPOSIT REDUCER')
-        //shift
+        console.log(state, 'state MAKE_DEPOSIT REDUCER')
+        console.log(action, 'action MAKE_DEPOSIT REDUCER')
         return Object.assign({}, state, {
-          balance:action.payload
+          accData: {
+            account: {
+              checking: [action.payload, ...state.accData.account.checking]
+            }
+          }
         });
 
 
       case type.WITHDRAW_DEPOSIT:
-        console.log(state, 'WITHDRAW_DEPOSIT REDUCER')
+        console.log(state, 'state WITHDRAW_DEPOSIT REDUCER')
+        console.log(action, 'action WITHDRAW_DEPOSIT REDUCER')
         return Object.assign({}, state, {
-          balance:action.payload
+          accData: {
+            account: {
+              checking: [action.payload, ...state.accData.account.checking]
+            }
+          }
         });
 
       case type.GET_BALANCE:

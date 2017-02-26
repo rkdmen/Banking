@@ -16,7 +16,7 @@ class MiniOverviewContainer extends Component {
     render(){
       console.log(this.props, ' this prop MINIOVERVIEWContainer')
       return(
-        <div miniO>
+        <div>
           <Header as='h3' textAlign='center'>
             <Header.Content>
               Summary
@@ -24,8 +24,8 @@ class MiniOverviewContainer extends Component {
           </Header>
           <div className='centerText'>
             <hr/>
-            <p className='bold'>
-              <span>Account Balance:&nbsp;</span>${!this.props.totalBalance?'Loading...':this.props.totalBalance.toFixed(2)}
+            <p className='bold miniOverviewBalance'>
+              <span>Account Balance:&nbsp;</span>${!this.props.totalBalance?'Loading...': <span className='miniOverviewBalance'>{this.props.totalBalance.toFixed(2)}</span>}
             </p>
           </div>
         </div>

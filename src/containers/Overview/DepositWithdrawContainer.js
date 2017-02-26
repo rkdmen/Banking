@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import { Button, Grid, Input, Label, Segment, Form } from 'semantic-ui-react'
+import { Button, Input } from 'semantic-ui-react'
 import { connect } from 'react-redux';
-import { withdrawDeposit, makeDeposit } from '../../actions/actions';
+import { withdrawDeposit, makeDeposit, getBalance } from '../../actions/actions';
 
 class DepositWithdrawContainer extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class DepositWithdrawContainer extends Component {
     this.withdraw = this.withdraw.bind(this);
     this.state = {
       amount:0,
-      currentTime: new Date().getTime()
+      currentTime: Math.round((new Date()).getTime() / 1000)
     }
   }
 
@@ -28,13 +28,40 @@ class DepositWithdrawContainer extends Component {
         el[0].style.opacity = 1;
     }
   }
+
   deposit(){
-    console.log(this.state.amount, ' deposit')
+    let currentBalance = document.getElementsByClassName('miniOverviewBalance')[1].innerText;
+    let data = {
+      amount: parseFloat(this.state.amount),
+      balance: parseFloat(currentBalance)+parseFloat(this.state.amount),
+      date: parseFloat(this.state.currentTime),
+      desc: 'Deposit'
+    }
+    if(!isNaN(this.state.amount)  && this.state.amount > 0 ){
+      this.props.makeDeposit(data);
+      this.props.getBalance();
+      let inputs = document.getElementsByTagName('input');
+      this.setState({amount:0})
+      inputs[1].value = '';
+    }
   }
 
   withdraw(){
-    console.log(this.state.amount, ' withdraw')
-
+    let currentBalance = document.getElementsByClassName('miniOverviewBalance')[1].innerText;
+    let data = {
+      amount: parseFloat(this.state.amount),
+      balance: parseFloat(currentBalance)-parseFloat(this.state.amount),
+      date: parseFloat(this.state.currentTime),
+      desc: 'Withdraw'
+    }
+    if(!isNaN(this.state.amount)  && this.state.amount > 0 ){
+      this.props.withdrawDeposit(data);
+      this.props.getBalance();
+      this.setState({amount:0});
+      let inputs = document.getElementsByTagName('input');
+      this.setState({amount:0})
+      inputs[1].value = '';
+    }
   }
 
   render(){
@@ -61,15 +88,9 @@ class DepositWithdrawContainer extends Component {
   }
 }
 
-
-function mapStateToProps(state) {
-  return {
-  }
-}
-
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ withdrawDeposit, makeDeposit }, dispatch);
+  return bindActionCreators({ withdrawDeposit, makeDeposit, getBalance }, dispatch);
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(DepositWithdrawContainer)
+export default connect(null, mapDispatchToProps)(DepositWithdrawContainer)
