@@ -1,14 +1,15 @@
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+const path = require('path')
+const express = require('express')
 
-new WebpackDevServer(webpack(config), {
-    publicPath: config.output.publicPath
-  })
-  .listen(3000, '0.0.0.0', function (err, result) {
-    if (err) {
-      console.log(err);
-    }
+module.exports = {
+  app: function () {
+    const app = express()
+    const indexPath = path.join(__dirname, './index.html')
+    const publicPath = express.static(path.join(__dirname, './build'))
 
-    console.log('Running at http://0.0.0.0:3000');
-  });
+    app.use('/build', publicPath)
+    app.get('/', function (_, res) { res.sendFile(indexPath) })
+
+    return app
+  }
+}

@@ -5,7 +5,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --colors",
     "lint": "eslint src",
-    "start": "node server.js",
+    "start": "node app.js",
     "test": "mocha -w tests/helpers/browser.js tests/*.spec.js"
   },
   "repository": {
@@ -53,6 +53,7 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.6.0",
     "redux-promise": "^0.5.3",
-    "semantic-ui-react": "^0.66.0"
+    "semantic-ui-react": "^0.66.0",
+    "webpack-hot-middleware": "^2.17.1"
   }
 }
