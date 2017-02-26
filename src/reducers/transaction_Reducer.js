@@ -8,9 +8,9 @@ export function transaction_reducer(state = initialState, action) {
 
       case type.MAKE_DEPOSIT:
         let depositTrans = {
-          id:hashCode('D', unixTime),
-          amount: parseFloat(action.payload),
-          balance: parseFloat(action.payload) + parseFloat(state.accData.account.checking[0].balance),
+          id:hashCode(action.payload.code, unixTime),
+          amount: parseFloat(action.payload.amount),
+          balance: parseFloat(action.payload.amount) + parseFloat(state.accData.account.checking[0].balance),
           date: parseFloat(unixTime),
           desc: 'Deposit'
         }
@@ -23,12 +23,18 @@ export function transaction_reducer(state = initialState, action) {
         });
 
       case type.WITHDRAW_DEPOSIT:
+        let desc;
+        if(action.payload.code === 'P'){
+          desc = 'Payment'
+        } else if (action.payload.code === 'W'){
+          desc = 'Withdraw'
+        }
         let withdrawTrans = {
-          id:hashCode('W', unixTime),
-          amount: parseFloat(action.payload),
-          balance: parseFloat(state.accData.account.checking[0].balance) - parseFloat(action.payload),
+          id:hashCode(action.payload.code, unixTime),
+          amount: parseFloat(action.payload.amount),
+          balance: parseFloat(state.accData.account.checking[0].balance) - parseFloat(action.payload.amount),
           date: parseFloat(unixTime),
-          desc: 'Withdraw'
+          desc: desc
         }
         return Object.assign({}, state, {
           accData: {

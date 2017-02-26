@@ -1,0 +1,11 @@
+.billsContainer{
+  @include flexCenter()
+  button {
+    margin-left: 2% !important;
+  }
+}
+
+.billsContainerSummary {
+  max-width:200px;
+  max-height:130px;
+}

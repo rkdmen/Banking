@@ -33,7 +33,7 @@ class DepositWithdrawContainer extends Component {
 
   deposit(){
     if(!isNaN(this.state.amount)  && this.state.amount > 0 ){
-      this.props.makeDeposit(parseFloat(this.state.amount));
+      this.props.makeDeposit(parseFloat(this.state.amount), 'D');
       this.props.getBalance();
       let inputs = document.getElementsByTagName('input');
       this.setState({amount:0})
@@ -51,7 +51,7 @@ class DepositWithdrawContainer extends Component {
     }
 
     if(!isNaN(this.state.amount)  && this.state.amount > 0){
-      this.props.withdrawDeposit(parseFloat(this.state.amount));
+      this.props.withdrawDeposit(parseFloat(this.state.amount), 'W');
       this.props.getBalance();
       this.setState({amount:0});
       let inputs = document.getElementsByTagName('input');

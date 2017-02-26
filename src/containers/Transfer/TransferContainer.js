@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import { Container } from 'semantic-ui-react'
 import { connect } from 'react-redux';
-import {  } from '../actions/actions';
+import Transfer from '../../components/Transfer/Transfer'
 
-export class TransactionModalContainer extends Component {
+// import {  } from '../actions/actions';
+
+export class TransferContainer extends Component {
   constructor(props) {
     super(props);
    }
@@ -12,8 +15,9 @@ export class TransactionModalContainer extends Component {
 
   render() {
     return (
-      <div>
-      </div>
+      <Container>
+        <Transfer />
+      </Container>
       )
   }
 }
@@ -28,4 +32,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionModalContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(TransferContainer)

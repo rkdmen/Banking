@@ -2,6 +2,13 @@ export const accData = {
   account: {
     checking: [
       {
+        id:'P1466973789',
+        date:1485907200,
+        desc:'Payment',
+        amount: 100.00,
+        balance: 2400.50
+      },
+      {
         id:'D1466973789',
         date:1487736038,
         desc:'Deposit',
@@ -32,22 +39,19 @@ export const accData = {
     ],
     bills:[
       {
-        type:'cc',
-        acc:'cc 9876',
-        balance: 100,
-        creditLimit: 5000
+        type:'Credit Card',
+        acc:'AmericanExpress 9876',
+        balance: 100.70
       },
       {
-        type:'cc',
-        acc:'cc 3434',
-        balance: 100,
-        creditLimit: 5000
+        type:'Credit Card',
+        acc:'Chase 3434',
+        balance: 220.25
       },
       {
-        type:'utility',
-        acc:'tmobile 2590',
-        balance: 80,
-        creditLimit: 'na'
+        type:'Utility',
+        acc:'T-mobile 2590',
+        balance: 78.50
       }
     ]
   }

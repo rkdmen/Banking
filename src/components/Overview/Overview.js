@@ -26,6 +26,9 @@ class Overview extends Component {
       } else if(this.props.desc === 'Withdraw'){
         depositWithdrawSpan = (<span className='redWithdraw'>Withdraw</span>)
         amountColored = (<span className='redWithdraw'>${this.props.amount.toFixed(2)}</span>)
+      } else if(this.props.desc === 'Payment'){
+        depositWithdrawSpan = (<span className='redWithdraw'>Payment</span>)
+        amountColored = (<span className='redWithdraw'>${this.props.amount.toFixed(2)}</span>)
       }
       return(
               <Table.Row>
