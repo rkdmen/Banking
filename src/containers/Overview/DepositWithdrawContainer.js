@@ -51,7 +51,7 @@ class DepositWithdrawContainer extends Component {
     }
 
     if(!isNaN(this.state.amount)  && this.state.amount > 0){
-      this.props.withdrawDeposit(data);
+      this.props.withdrawDeposit(parseFloat(this.state.amount));
       this.props.getBalance();
       this.setState({amount:0});
       let inputs = document.getElementsByTagName('input');
