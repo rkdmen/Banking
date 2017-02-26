@@ -34,14 +34,14 @@ class Overview extends Component {
                   <span className='forMobile bold'>Date:&nbsp;</span>{this.unixConverter(this.props.date)}
                   </Header>
                 </Table.Cell>
-                <Table.Cell textAlign='center'>
-                  <span className='forDesktop' >{depositWithdrawSpan}</span>
+                <Table.Cell className='forDesktop' textAlign='center'>
+                  <span className='forDesktop'>{depositWithdrawSpan}</span>
                 </Table.Cell>
                 <Table.Cell textAlign='center'>
                   <span className='forMobile bold'>{depositWithdrawSpan}&nbsp;&nbsp;</span>{amountColored}
                 </Table.Cell>
                 <Table.Cell textAlign='center'>
-                  <span className='forMobile bold'>Balance:&nbsp;</span>${this.props.balance}
+                  <span className='forMobile bold'>Balance:&nbsp;</span>${this.props.balance.toFixed(2)}
                 </Table.Cell>
               </Table.Row>
 
