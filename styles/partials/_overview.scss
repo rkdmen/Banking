@@ -4,8 +4,12 @@
 }
 
 .inputContainer {
-  // margin: 0 auto;
-  margin-left: 25%;
+  // margin 0 auto;
+  @include flexCenter()
+  button {
+    margin-left:15px !important;
+  }
+
 }
 
 .greenDeposit {

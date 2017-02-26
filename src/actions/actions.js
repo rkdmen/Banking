@@ -1,17 +1,17 @@
 //Actions
 import * as type from '../constants/ActionTypes';
 
-export function makeDeposit(detail){
+export function makeDeposit(payload){
     return {
       type: type.MAKE_DEPOSIT,
-      payload: detail
+      payload
     }
 }
 
-export function WithdrawDeposit(detail){
+export function withdrawDeposit(payload){
     return {
       type: type.WITHDRAW_DEPOSIT,
-      payload: detail
+      payload
     }
 }
 

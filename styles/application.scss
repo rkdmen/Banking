@@ -9,6 +9,7 @@
 // Partials
 @import './partials/navbar';
 @import './partials/overview';
+@import './partials/depositWithdraw';
 
 
 
@@ -38,8 +39,4 @@
 
 .centerText {
   text-align:center !important;
-}
-
-.testing {
-  // height:200px;
 }

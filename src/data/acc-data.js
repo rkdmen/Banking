@@ -1,16 +1,17 @@
 export const accData = {
-  history:[
+  account: {
+    checking: [
     {
       date:1487736038,
       desc:'Deposit',
       amount: 1500.00,
-      balance: 2500
+      balance: 2500.50
     },
     {
       date:1487191538,
       desc:'Withdraw',
       amount: 300.00,
-      balance: 1000
+      balance: 1000.50
     },
     {
       date:1484252924,
@@ -24,7 +25,7 @@ export const accData = {
       amount: 250.00,
       balance: 250
     }
-  ]
+  ]}
 }
 
 

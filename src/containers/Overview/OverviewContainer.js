@@ -52,7 +52,7 @@ class OverviewContainer extends Component {
 function mapStateToProps(state) {
   console.log(state , 'mapstate balance history!')
   return {
-    balanceHistory: state.reducer.balanceData.accData.history
+    balanceHistory: state.reducer.balanceData.accData.account.checking
   }
 }
 

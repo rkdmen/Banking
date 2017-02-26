@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 // import SidebarLeftOverlay from './Sidebar';
 import OverviewContainer from '../containers/Overview/OverviewContainer';
-import MiniOverview from '../containers/Overview/MiniOverview';
-import TransactionDepositWithdraw from './Transaction/TransactionDepositWithdraw';
+import MiniOverviewContainer from '../containers/Overview/MiniOverviewContainer';
+import DepositWithdrawContainer from '../containers/Overview/DepositWithdrawContainer';
 import { Container, Grid, Segment } from 'semantic-ui-react';
 
 class Main extends Component {
@@ -16,12 +16,12 @@ class Main extends Component {
           <Grid.Row  columns={2}>
             <Grid.Column className='deposit-withdraw'>
               <Segment>
-              <TransactionDepositWithdraw />
+              <DepositWithdrawContainer />
               </Segment>
             </Grid.Column>
             <Grid.Column>
               <Segment>
-                <MiniOverview />
+                <MiniOverviewContainer />
               </Segment>
             </Grid.Column>
           </Grid.Row>

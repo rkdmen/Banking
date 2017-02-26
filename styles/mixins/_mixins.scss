@@ -1,2 +1,8 @@
 //Mixins
 
+@mixin flexCenter(){
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}

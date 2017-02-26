@@ -16,6 +16,7 @@ class Overview extends Component {
       let min =  newDate.getMinutes()<10?'0' + newDate.getMinutes(): newDate.getMinutes();
       return `${month} ${date}, ${year}, ${hour}:${min}`;
     }
+
     render(){
       let depositWithdrawSpan;
       let amountColored;
@@ -27,7 +28,6 @@ class Overview extends Component {
         amountColored = (<span className='redWithdraw'>${this.props.amount.toFixed(2)}</span>)
       }
       return(
-
               <Table.Row>
                 <Table.Cell>
                   <Header as='h4' textAlign='center'>

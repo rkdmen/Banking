@@ -7,6 +7,7 @@ export function transaction_reducer(state = initialState, action) {
 
       case type.MAKE_DEPOSIT:
         console.log(state, 'MAKE_DEPOSIT REDUCER')
+        //shift
         return Object.assign({}, state, {
           balance:action.payload
         });
@@ -20,8 +21,8 @@ export function transaction_reducer(state = initialState, action) {
 
       case type.GET_BALANCE:
         console.log(state, 'GET BALANCE REDUCER')
-        let totalDepositFilter = state.accData.history.filter(item => item.desc ==='Deposit').map(d => d.amount);
-        let totalWithdrawFilter = state.accData.history.filter(item => item.desc ==='Withdraw').map(w => w.amount);
+        let totalDepositFilter = state.accData.account.checking.filter(item => item.desc ==='Deposit').map(d => d.amount);
+        let totalWithdrawFilter = state.accData.account.checking.filter(item => item.desc ==='Withdraw').map(w => w.amount);
         let totalDep = totalDepositFilter.reduce((a,b) => a+b)
         let totalWith = totalWithdrawFilter.reduce((a,b) => a+b)
         return Object.assign({}, state, {

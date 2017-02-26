@@ -16,7 +16,7 @@ class MiniOverviewContainer extends Component {
     render(){
       console.log(this.props, ' this prop MINIOVERVIEWContainer')
       return(
-        <div>
+        <div miniO>
           <Header as='h3' textAlign='center'>
             <Header.Content>
               Summary
