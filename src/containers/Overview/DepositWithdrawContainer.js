@@ -55,7 +55,10 @@ class DepositWithdrawContainer extends Component {
       date: parseFloat(this.state.currentTime),
       desc: 'Withdraw'
     }
-    if(currentBalance <= 0 || this.state.amount > currentBalance){
+    console.log(currentBalance, ' current balance')
+    console.log(this.state.amount, ' amoutn')
+    console.log(typeof this.state.amount , typeof currentBalance)
+    if(parseFloat(currentBalance) <= 0 || parseFloat(this.state.amount) > parseFloat(currentBalance)){
       let el = document.getElementsByClassName('warningRed');
       el[0].innerText = 'Not enough balance'
       el[0].style.opacity = 1;
