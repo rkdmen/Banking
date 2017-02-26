@@ -1,8 +1,9 @@
 import * as type from '../constants/ActionTypes';
 let initialState = require('../data/acc-data.js');
+let sortedByDate = initialState.accData.history.sort((a, b)=>b.date - a.date)
 
 
-export function transaction_reducer(state = initialState, action) {
+export function transaction_reducer(state = sortedByDate, action) {
     console.log(state, ' initData')
     switch (action.type) {
 
@@ -21,7 +22,7 @@ export function transaction_reducer(state = initialState, action) {
 
       case type.GET_BALANCE:
         console.log(action, 'GET BALANCE REDUCER')
-        return Object.assign({}, state);
+        return Object.assign({}, sortedByDate);
 
 
       default:

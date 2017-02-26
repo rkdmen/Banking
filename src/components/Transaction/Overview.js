@@ -7,25 +7,24 @@ class Overview extends Component {
     }
 
     unixConverter(unix){
-      let a = new Date(unix * 1000);
+      let newDate = new Date(unix * 1000);
       let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      let year = a.getFullYear();
-      let month = months[a.getMonth()];
-      let date = a.getDate();
-      let hour = a.getHours();
-      let min = a.getMinutes();
-      let time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min;
-      return `${date} ${month} ${year} ${hour}:${min}`;
+      let year = newDate.getFullYear();
+      let month = months[newDate.getMonth()];
+      let date = newDate.getDate();
+      let hour = newDate.getHours();
+      let min =  newDate.getMinutes()<10?'0' + newDate.getMinutes(): newDate.getMinutes();
+      return `${month} ${date}, ${year}, ${hour}:${min}`;
     }
     render(){
       let depositWithdrawSpan;
       let amountColored;
       if(this.props.desc === 'Deposit'){
         depositWithdrawSpan = (<span className='greenDeposit'>Deposit</span>)
-        amountColored = (<span className='greenDeposit'>${this.props.amount}</span>)
+        amountColored = (<span className='greenDeposit'>${this.props.amount.toFixed(2)}</span>)
       } else if(this.props.desc === 'Withdraw'){
         depositWithdrawSpan = (<span className='redWithdraw'>Withdraw</span>)
-        amountColored = (<span className='redWithdraw'>${this.props.amount}</span>)
+        amountColored = (<span className='redWithdraw'>${this.props.amount.toFixed(2)}</span>)
       }
       return(
 

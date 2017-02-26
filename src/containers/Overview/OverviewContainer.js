@@ -10,16 +10,15 @@ class OverviewContainer extends Component {
     super(props);
    }
 
-  componentDidMount() {
-      console.log('getting balance');
-      this.props.getBalance();
-  }
+  // componentDidMount() {
+  //     console.log('getting balance');
+  //     this.props.getBalance();
+  // }
 
   render() {
     console.log(this.props, ' THIS.PROP TRANSACTIONOVERVIEW')
     return (
-                <Table celled padded>
-
+          <Table celled padded>
             <Table.Header className='forDesktop'>
               <Table.Row>
                 <Table.HeaderCell textAlign='center' singleLine>Date</Table.HeaderCell>
@@ -30,21 +29,22 @@ class OverviewContainer extends Component {
             </Table.Header>
 
             <Table.Body>
-        {
-          this.props.balanceHistory.history.map((acc, i)=>{
-            return (<Overview
-              key={i}
-              amount={acc.amount}
-              balance={acc.balance}
-              date={acc.date}
-              desc={acc.desc}
-            />
-            )
-          })
-        }
+            {
+            !this.props.balanceHistory?'Loading...':
+            this.props.balanceHistory.map((acc, i)=>{
+              return (
+                <Overview
+                  key={i}
+                  amount={acc.amount}
+                  balance={acc.balance}
+                  date={acc.date}
+                  desc={acc.desc}
+                />
+              )
+            })
+            }
 
             </Table.Body>
-
           </Table>
       )
   }
@@ -52,9 +52,9 @@ class OverviewContainer extends Component {
 
 
 function mapStateToProps(state) {
-  console.log(state ,  ' state OverviewContainer')
+  console.log(state ,  ' mapStateToProps OverviewContainer')
   return {
-    balanceHistory: state.reducer.balanceData.accData
+    balanceHistory: state.reducer.balanceData
   }
 }
 
