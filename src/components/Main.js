@@ -20,7 +20,7 @@ class Main extends Component {
               </Segment>
             </Grid.Column>
             <Grid.Column>
-              <Segment>
+              <Segment style={{minWidth:'347.5px',minHeight:'130px'}}>
                 <MiniOverviewContainer />
               </Segment>
             </Grid.Column>

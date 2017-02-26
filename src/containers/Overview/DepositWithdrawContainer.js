@@ -42,7 +42,7 @@ class DepositWithdrawContainer extends Component {
       this.props.getBalance();
       let inputs = document.getElementsByTagName('input');
       this.setState({amount:0})
-      inputs[1].value = '';
+      inputs[0].value = '';
     }
   }
 
@@ -59,8 +59,7 @@ class DepositWithdrawContainer extends Component {
       this.props.getBalance();
       this.setState({amount:0});
       let inputs = document.getElementsByTagName('input');
-      this.setState({amount:0})
-      inputs[1].value = '';
+      inputs[0].value = '';
     }
   }
 

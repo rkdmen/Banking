@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { Header, Table } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import { getBalance } from '../../actions/actions';
-import Overview from '../../components/Transaction/Overview';
+import Overview from '../../components/Overview/Overview';
 
 class OverviewContainer extends Component {
   constructor(props) {
@@ -46,7 +46,6 @@ class OverviewContainer extends Component {
       )
   }
 }
-
 
 function mapStateToProps(state) {
   console.log(state , 'mapstate balance history!')

@@ -23,13 +23,15 @@ class Navbar extends Component {
     return (
       <div>
         <Menu pointing>
-          <Menu.Item className='main-header navLink' header><Icon name='diamond'></Icon>Kus<span>Bank</span></Menu.Item>
+          <Menu.Item className='main-header navLink' header>
+            <Link to={'/'}><Icon name='diamond'></Icon>Kus<span>Bank</span></Link>
+          </Menu.Item>
           <Menu.Item className='navLink' name='overview' active={activeItem === 'overview'} onClick={this.handleItemClick} />
           <Menu.Item className='navLink' name='bills' active={activeItem === 'bills'} onClick={this.handleItemClick} />
           <Menu.Item className='navLink' name='transfer' active={activeItem === 'transfer'} onClick={this.handleItemClick} />
           <Menu.Menu className='navLink' position='right'>
             <Menu.Item className='forDesktop'>
-              <Input icon='search' placeholder='Search...' />
+
             </Menu.Item>
           </Menu.Menu>
         </Menu>
