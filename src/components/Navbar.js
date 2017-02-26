@@ -24,7 +24,7 @@ class Navbar extends Component {
       <div>
         <Menu pointing>
           <Menu.Item className='main-header navLink' header>
-            <Link to={'/'}><Icon name='diamond'></Icon>Kus<span>Bank</span></Link>
+            <Icon name='diamond'></Icon>Kus<span>Bank</span>
           </Menu.Item>
           <Menu.Item className='navLink' name='overview' active={activeItem === 'overview'} onClick={this.handleItemClick} />
           <Menu.Item className='navLink' name='bills' active={activeItem === 'bills'} onClick={this.handleItemClick} />

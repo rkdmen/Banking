@@ -34,6 +34,11 @@ class Overview extends Component {
                   <span className='forMobile bold'>Date:&nbsp;</span>{this.unixConverter(this.props.date)}
                   </Header>
                 </Table.Cell>
+                <Table.Cell>
+                  <Header as='h4' textAlign='center'>
+                  <span className='forMobile bold'>Transaction ID:&nbsp;</span>{this.props.transId}
+                  </Header>
+                </Table.Cell>
                 <Table.Cell className='forDesktop' textAlign='center'>
                   <span className='forDesktop'>{depositWithdrawSpan}</span>
                 </Table.Cell>
@@ -44,7 +49,6 @@ class Overview extends Component {
                   <span className='forMobile bold'>Balance:&nbsp;</span>${this.props.balance.toFixed(2)}
                 </Table.Cell>
               </Table.Row>
-
       )
     }
 }

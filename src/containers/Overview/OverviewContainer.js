@@ -22,6 +22,7 @@ class OverviewContainer extends Component {
             <Table.Header className='forDesktop'>
               <Table.Row>
                 <Table.HeaderCell textAlign='center' singleLine>Date</Table.HeaderCell>
+                <Table.HeaderCell textAlign='center' singleLine>Transaction ID</Table.HeaderCell>
                 <Table.HeaderCell textAlign='center' singleLine>Description</Table.HeaderCell>
                 <Table.HeaderCell textAlign='center' singleLine>Amount</Table.HeaderCell>
                 <Table.HeaderCell textAlign='center' singleLine>Available Balance</Table.HeaderCell>
@@ -33,6 +34,7 @@ class OverviewContainer extends Component {
                 return (
                   <Overview
                     key={i}
+                    transId={acc.id}
                     amount={acc.amount}
                     balance={acc.balance}
                     date={acc.date}

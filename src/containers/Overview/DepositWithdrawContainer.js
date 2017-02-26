@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { Button, Input } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import { withdrawDeposit, makeDeposit, getBalance } from '../../actions/actions';
+import { hashCode } from '../../helper/helper';
 
 class DepositWithdrawContainer extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class DepositWithdrawContainer extends Component {
       currentTime: Math.round((new Date()).getTime() / 1000)
     }
   }
+
 
   handleInput(e){
     e.preventDefault();
@@ -33,6 +35,7 @@ class DepositWithdrawContainer extends Component {
   deposit(){
     let currentBalance = document.getElementsByClassName('miniOverviewBalance')[1].innerText;
     let data = {
+      id:hashCode('D', this.state.currentTime),
       amount: parseFloat(this.state.amount),
       balance: parseFloat(currentBalance)+parseFloat(this.state.amount),
       date: parseFloat(this.state.currentTime),
@@ -50,14 +53,12 @@ class DepositWithdrawContainer extends Component {
   withdraw(){
     let currentBalance = document.getElementsByClassName('miniOverviewBalance')[1].innerText;
     let data = {
+      id:hashCode('W',this.state.currentTime),
       amount: parseFloat(this.state.amount),
       balance: parseFloat(currentBalance)-parseFloat(this.state.amount),
       date: parseFloat(this.state.currentTime),
       desc: 'Withdraw'
     }
-    console.log(currentBalance, ' current balance')
-    console.log(this.state.amount, ' amoutn')
-    console.log(typeof this.state.amount , typeof currentBalance)
     if(parseFloat(currentBalance) <= 0 || parseFloat(this.state.amount) > parseFloat(currentBalance)){
       let el = document.getElementsByClassName('warningRed');
       el[0].innerText = 'Not enough balance'
