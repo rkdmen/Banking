@@ -25,6 +25,7 @@ class DepositWithdrawContainer extends Component {
       this.setState({amount:amount})
         el[0].style.opacity = 0;
     } else {
+        el[0].innerText = 'Invalid Input'
         el[0].style.opacity = 1;
     }
   }
@@ -54,7 +55,14 @@ class DepositWithdrawContainer extends Component {
       date: parseFloat(this.state.currentTime),
       desc: 'Withdraw'
     }
-    if(!isNaN(this.state.amount)  && this.state.amount > 0 ){
+    if(currentBalance <= 0 || this.state.amount > currentBalance){
+      let el = document.getElementsByClassName('warningRed');
+      el[0].innerText = 'Not enough balance'
+      el[0].style.opacity = 1;
+      return;
+    }
+
+    if(!isNaN(this.state.amount)  && this.state.amount > 0){
       this.props.withdrawDeposit(data);
       this.props.getBalance();
       this.setState({amount:0});
@@ -67,7 +75,7 @@ class DepositWithdrawContainer extends Component {
     console.log(this.props, ' this prop transaction')
     return (
         <div className='inputContainer'>
-          <div className='warningRed hideWarning center'>Invalid Input</div>
+          <div className='warningRed hideWarning center'>&nbsp;</div>
           <div style={{width:'100%',clear:'both'}}></div>
           <Input
             className='amount-input-field'
