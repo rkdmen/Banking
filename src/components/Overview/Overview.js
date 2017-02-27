@@ -24,14 +24,14 @@ class Overview extends Component {
         depositWithdrawSpan = (<span className='greenDeposit'>Deposit</span>)
         amountColored = (<span className='greenDeposit'>${this.props.amount.toFixed(2)}</span>)
       } else if(this.props.desc === 'Withdraw'){
-        depositWithdrawSpan = (<span className='redWithdraw'>Withdraw</span>)
-        amountColored = (<span className='redWithdraw'>${this.props.amount.toFixed(2)}</span>)
+        depositWithdrawSpan = (<span className='redWithdraw'>(Withdraw)</span>)
+        amountColored = (<span className='redWithdraw'>(${this.props.amount.toFixed(2)})</span>)
       } else if(this.props.desc === 'Payment'){
-        depositWithdrawSpan = (<span className='redWithdraw'>Payment</span>)
-        amountColored = (<span className='redWithdraw'>${this.props.amount.toFixed(2)}</span>)
+        depositWithdrawSpan = (<span className='redWithdraw'>(Payment)</span>)
+        amountColored = (<span className='redWithdraw'>(${this.props.amount.toFixed(2)})</span>)
       }
       return(
-              <Table.Row>
+              <Table.Row className='transactionRow'>
                 <Table.Cell>
                   <Header as='h4' textAlign='center'>
                   <span className='forMobile bold'>Date:&nbsp;</span>{this.unixConverter(this.props.date)}

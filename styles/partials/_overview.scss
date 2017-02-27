@@ -11,8 +11,9 @@
   }
 }
 
-tr {
+.transactionRow {
   &:hover {
+    transition:.8s;
     background-color: #D4E3CC;
   }
 }
@@ -23,4 +24,13 @@ tr {
 
 .redWithdraw {
   color: $redWithdraw
+}
+
+
+.miniOverviewBalance {
+  animation: ripple 1s ease-in-out;
+}
+
+.circleDiv {
+  @include circleDiv(50px);
 }

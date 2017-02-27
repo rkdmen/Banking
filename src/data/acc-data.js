@@ -1,26 +1,27 @@
 export const accData = {
   account: {
     checking: [
-      {
-        id:'P1466973789',
-        date:1485907200,
-        desc:'Payment',
-        amount: 100.00,
-        balance: 2400.50
-      },
+
       {
         id:'D1466973789',
         date:1487736038,
         desc:'Deposit',
         amount: 1500.00,
-        balance: 2500.50
+        balance: 2400.50
       },
       {
         id:'W1300595859',
         date:1487191538,
         desc:'Withdraw',
         amount: 300.00,
-        balance: 1000.50
+        balance: 900.50
+      },
+      {
+        id:'P1466973789',
+        date:1485907200,
+        desc:'Payment',
+        amount: 100.00,
+        balance: 1200.50
       },
       {
         id:'D2958020779',

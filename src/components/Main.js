@@ -30,7 +30,8 @@ class Main extends Component {
             </Grid.Column>
           </Grid.Row>
          </Grid>
-       </Container>
+        <div className='circleDiv'>Top</div>
+      </Container>
       )
   }
 }

@@ -17,6 +17,7 @@ export class TransferContainer extends Component {
     return (
       <Container>
         <Transfer />
+        <div className='circleDiv'>Top</div>
       </Container>
       )
   }

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Container, Button, Segment, Input, Grid} from 'semantic-ui-react'
 import Bills from '../../components/Bills/Bills'
 import MiniOverviewContainer from '../Overview/MiniOverviewContainer';
-import PaymentContainer from './PaymentContainer';
-// import {  } from '../actions/actions';
 
 class BillsContainer extends Component {
   constructor(props) {
@@ -40,6 +37,7 @@ class BillsContainer extends Component {
             }
           </Grid.Column>
         </Grid>
+        <div className='circleDiv'>Top</div>
       </Container>
       )
   }
@@ -52,9 +50,6 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({  }, dispatch);
-}
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(BillsContainer)
+export default connect(mapStateToProps, null)(BillsContainer)

@@ -32,9 +32,12 @@ class PaymentContainer extends Component {
 
   submitPayment(e){
     e.preventDefault();
-    this.props.payBill(e.target.value, this.state);
-    this.props.withdrawDeposit(parseFloat(this.state.amount), 'P');
-    this.props.getBalance();
+    if(!isNaN(this.state.amount)){
+      this.props.payBill(e.target.value, this.state);
+      this.props.withdrawDeposit(parseFloat(this.state.amount), 'P');
+      this.props.getBalance();
+      this.setState({amount:0, date:''})
+    }
 
   }
 
