@@ -40,6 +40,7 @@ export class BillsAddPayeeContainer extends Component {
   }
 
   submitAcc(){
+    //Checking if all inputs are valid as new payee account
     if(typeof this.state.accName === 'string' && this.state.accNum.length ===  4 && typeof this.state.accType === 'string' ){
       let account = {
         type:this.state.accType,
@@ -50,6 +51,7 @@ export class BillsAddPayeeContainer extends Component {
       this.setState({ accName:null, accNum:'', accType:null})
       let inputs = document.getElementsByTagName('input');
       for(var i = 0; i < inputs.length;i++){
+        //Clearing all inputs after submitted
         inputs[i].value = '';
       }
     }

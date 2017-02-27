@@ -10,7 +10,6 @@ class OverviewContainer extends Component {
     super(props);
    }
 
-
   render() {
     return (
           <Table celled padded>
@@ -43,7 +42,6 @@ class OverviewContainer extends Component {
       )
   }
 }
-
 
 OverviewContainer.propTypes = {
     balanceHistory: React.PropTypes.number

@@ -32,6 +32,7 @@ class PaymentContainer extends Component {
 
   submitPayment(e){
     e.preventDefault();
+    //Checking if both(Date, amount) inputs are valid
     if(!isNaN(this.state.amount) && this.state.amount > 0 && typeof this.state.date === 'number'){
       this.props.payBill(e.target.value, this.state);
       this.props.withdrawDeposit(parseFloat(this.state.amount), 'P');
@@ -39,6 +40,7 @@ class PaymentContainer extends Component {
       this.setState({amount:0, date:null})
       let inputs = document.getElementsByTagName('input');
       for(var i = 0; i < inputs.length;i++){
+        //Clearing all inputs after submitted
         inputs[i].value = '';
       }
     }

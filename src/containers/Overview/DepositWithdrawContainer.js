@@ -15,11 +15,10 @@ class DepositWithdrawContainer extends Component {
     }
   }
 
-
   handleInput(e){
     e.preventDefault();
     let amount = e.target.value;
-    let el = document.getElementsByClassName('warningRed');
+    let el = document.getElementsByClassName('warningRed'); //If it doesnt match regEx, it will show warning
     let checkAmount = /^\$?[0-9]+\.?[0-9]?[0-9]?$/; //RegExpression for checking amount
     if(amount === '' || checkAmount.test(amount)){
       this.setState({amount:amount})
@@ -30,7 +29,8 @@ class DepositWithdrawContainer extends Component {
     }
   }
 
-  deposit(){
+  deposit(e){
+    e.preventDefault();
     if(!isNaN(this.state.amount)  && this.state.amount > 0 ){
       this.props.makeDeposit(parseFloat(this.state.amount), 'D');
       this.props.getBalance();
@@ -40,7 +40,10 @@ class DepositWithdrawContainer extends Component {
     }
   }
 
-  withdraw(){
+  withdraw(e){
+    e.preventDefault();
+    //Checking if user input is greater than available balance, if its greater
+    //it will show "Not enough balance"
     let currentBalance = document.getElementsByClassName('miniOverviewBalance')[0].innerText;
     if(parseFloat(currentBalance) <= 0 || parseFloat(this.state.amount) > parseFloat(currentBalance)){
       let el = document.getElementsByClassName('warningRed');
@@ -48,7 +51,7 @@ class DepositWithdrawContainer extends Component {
       el[0].style.opacity = 1;
       return;
     }
-
+    //If amount is valid and withdrawing less than available balance
     if(!isNaN(this.state.amount)  && this.state.amount > 0){
       this.props.withdrawDeposit(parseFloat(this.state.amount), 'W');
       this.props.getBalance();
