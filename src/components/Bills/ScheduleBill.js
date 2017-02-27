@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Header } from 'semantic-ui-react'
 import { unixConverterMonthDate } from '../../helper/helper';
 
 class ScheduleBill extends Component {
@@ -14,9 +13,7 @@ class ScheduleBill extends Component {
             </p>
           <div className='centerText'>
             <hr/>
-            <p>
               <span className='bold'>Scheduled:&nbsp;</span>{unixConverterMonthDate(this.props.date)}
-            </p>
             <p>
               <span className='bold'>Amount:&nbsp;</span><span className='redWithdraw'>${this.props.balance}</span>
             </p>
@@ -24,6 +21,12 @@ class ScheduleBill extends Component {
           </div>
       )
   }
+}
+
+ScheduleBill.propTypes = {
+    acc: React.PropTypes.string,
+    date: React.PropTypes.number,
+    balance: React.PropTypes.number
 }
 
 

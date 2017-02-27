@@ -44,6 +44,12 @@ class OverviewContainer extends Component {
   }
 }
 
+
+OverviewContainer.propTypes = {
+    balanceHistory: React.PropTypes.number
+}
+
+
 function mapStateToProps(state) {
   return {
     balanceHistory: state.reducer.balanceData.accData.account.checking

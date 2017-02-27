@@ -13,6 +13,11 @@ export function bills_reducer(state = initialState.accData.account.bills, action
         })
         return [...newData];
 
+      case type.ADD_PAYEE:
+      console.log(action.payload, ' payload')
+        return [...state, action.payload]
+
+
       default:
           return state;
     }

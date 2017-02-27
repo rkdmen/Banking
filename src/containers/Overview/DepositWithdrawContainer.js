@@ -81,6 +81,12 @@ class DepositWithdrawContainer extends Component {
   }
 }
 
+DepositWithdrawContainer.propTypes = {
+    makeDeposit: React.PropTypes.number,
+    withdrawDeposit: React.PropTypes.func,
+    getBalance: React.PropTypes.func
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ withdrawDeposit, makeDeposit, getBalance }, dispatch);
 }

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Button, Segment, Input, Grid, Form } from 'semantic-ui-react'
-import MiniOverviewContainer from '../../containers/Overview/MiniOverviewContainer';
+import { Segment, Grid } from 'semantic-ui-react'
 import PaymentContainer from '../../containers/Bills/PaymentContainer';
 
 
@@ -38,6 +37,12 @@ class Bills extends Component {
           </Segment>
       )
   }
+}
+
+Bills.propTypes = {
+    dueBalance: React.PropTypes.number,
+    acc: React.PropTypes.string,
+    type: React.PropTypes.string
 }
 
 

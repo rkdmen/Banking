@@ -23,16 +23,24 @@
   color: $redWithdraw
 }
 
-.BillsOverviewContainerSummary {
-  text-align:center !important;
+.BillsOverviewContainerSummary, .billsContainer {
+  p {
+    word-wrap:break-word;
+  }
   max-width:200px;
   min-height:130px;
   max-height:160px;
   animation: ripple 1s ease-in-out;
+  @media #{$mq-xs, $mq-sm}{
+    width:100% !important;
+  }
 }
 
 .circleDiv {
   @include circleDiv(50px);
 }
 
-
+.miniOverview, .deposit-withdraw {
+  animation: ripple .5s ease-in-out;
+  height:135px !important;
+}

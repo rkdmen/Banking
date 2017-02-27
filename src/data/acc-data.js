@@ -41,7 +41,7 @@ export const accData = {
     bills:[
       {
         type:'Credit Card',
-        acc:'AmericanExpress 9876',
+        acc:'American Express 9876',
         balance: 50.70
       },
       {

@@ -16,14 +16,12 @@ class Main extends Component {
           </div>
           <Grid.Row  columns={2}>
             <Grid.Column className='deposit-withdraw'>
-              <Segment>
+              <Segment style={{minHeight:'135px'}}>
               <DepositWithdrawContainer />
               </Segment>
             </Grid.Column>
             <Grid.Column>
-              <Segment style={{minWidth:'347.5px',minHeight:'130px'}}>
                 <MiniOverviewContainer />
-              </Segment>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row columns={1}>

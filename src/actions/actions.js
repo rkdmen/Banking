@@ -40,3 +40,10 @@ export function payBill(accId, detail, code){
       payload
     }
 }
+
+export function addPayee(acc){
+    return {
+      type: type.ADD_PAYEE,
+      payload:acc
+    }
+}

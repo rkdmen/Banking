@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Button, Segment, Input, Grid} from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 import ScheduleBill from '../../components/Bills/ScheduleBill'
 
 class ScheduleBillContainer extends Component {
@@ -10,10 +10,10 @@ class ScheduleBillContainer extends Component {
 
   render() {
     return (
-      <Container className='billsContainer'>
+      <div >
         {!this.props.scheBill?'Loading...':this.props.scheBill.map((item, i)=>{
             return (
-                <Segment className='BillsOverviewContainerSummary' key={i}>
+                <Segment className='miniOverview' key={i}>
                   <ScheduleBill
                     acc={item.acc}
                     balance={item.balance}
@@ -23,17 +23,20 @@ class ScheduleBillContainer extends Component {
             )
           })
         }
-      </Container>
+      </div>
       )
   }
 }
+
+ScheduleBillContainer.propTypes = {
+    scheBill: React.PropTypes.array
+}
+
 
 function mapStateToProps(state) {
   return {
     scheBill: state.reducer.scheBill
   }
 }
-
-
 
 export default connect(mapStateToProps, null)(ScheduleBillContainer)

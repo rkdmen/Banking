@@ -7,3 +7,4 @@ export const GET_BALANCE = 'GET_BALANCE';
 
 //Bills
 export const PAY_BILL = 'PAY_BILL';
+export const ADD_PAYEE = 'ADD_PAYEE';

@@ -47,5 +47,12 @@ class Overview extends Component {
     }
 }
 
+Overview.propTypes = {
+    balance: React.PropTypes.number,
+    transId: React.PropTypes.string,
+    amount: React.PropTypes.number,
+    desc: React.PropTypes.string,
+    date: React.PropTypes.number
+}
 
 export default Overview;

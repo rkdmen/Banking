@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Router, Link, hashHistory } from 'react-router';
-import { Input, Menu, Segment, Icon } from 'semantic-ui-react'
+import { hashHistory } from 'react-router';
+import { Menu, Icon } from 'semantic-ui-react'
 
 class Navbar extends Component {
     constructor() {
@@ -13,7 +13,6 @@ class Navbar extends Component {
     e.preventDefault();
     this.setState({ activeItem: name })
     hashHistory.push(`/${name}`);
-
   }
 
   render() {
@@ -27,7 +26,6 @@ class Navbar extends Component {
           </Menu.Item>
           <Menu.Item className='navLink' name='overview' active={activeItem === 'overview'} onClick={this.handleItemClick} />
           <Menu.Item className='navLink' name='bills' active={activeItem === 'bills'} onClick={this.handleItemClick} />
-          <Menu.Item className='navLink' name='transfer' active={activeItem === 'transfer'} onClick={this.handleItemClick} />
           <Menu.Menu className='navLink' position='right'>
             <Menu.Item className='forDesktop'>
             </Menu.Item>

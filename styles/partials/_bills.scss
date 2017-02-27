@@ -5,9 +5,16 @@
   }
 }
 
-
 .scheduleHeader {
   font-size: 14px;
   text-align:center;
   font-weight:500;
+}
+
+.addPayee-btn {
+  display:inline;
+  width:20%;
+  @media #{$mq-xs, $mq-sm}{
+    width:30%;
+  }
 }

@@ -8,7 +8,7 @@ class PaymentContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date:'',
+      date:null,
       amount:0
     }
     this.handleDate = this.handleDate.bind(this);
@@ -36,7 +36,7 @@ class PaymentContainer extends Component {
       this.props.payBill(e.target.value, this.state);
       this.props.withdrawDeposit(parseFloat(this.state.amount), 'P');
       this.props.getBalance();
-      this.setState({amount:0, date:''})
+      this.setState({amount:0, date:null})
       let inputs = document.getElementsByTagName('input');
       for(var i = 0; i < inputs.length;i++){
         inputs[i].value = '';
@@ -57,6 +57,15 @@ class PaymentContainer extends Component {
       </Form>
       )
   }
+}
+
+PaymentContainer.propTypes = {
+    billsData: React.PropTypes.array,
+    totalBalance: React.PropTypes.number,
+    accId: React.PropTypes.string,
+    withdrawDeposit: React.PropTypes.func,
+    getBalance: React.PropTypes.func,
+    payBill: React.PropTypes.func
 }
 
 function mapStateToProps(state) {
