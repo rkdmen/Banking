@@ -47,12 +47,30 @@ describe('Actions', () => {
             const action = payBill();
             expect(action.type).toEqual(types.PAY_BILL);
         });
+        it('has the correct payload', () => {
+            let data = {
+              accId: 'Chase 2299',
+              detail: 50,
+              code:'P'
+            }
+            const action = payBill('Chase 2299', 50, 'P');
+            expect(action.payload).toEqual(data);
+        });
     });
 
     describe('addPayee', () => {
         it('has the ActionType Constant', () => {
             const action = addPayee();
             expect(action.type).toEqual(types.ADD_PAYEE);
+        });
+        it('has the correct payload', () => {
+              let account = {
+                type:'Credit Card',
+                acc:'T-Mobile 2590',
+                balance: 0
+              }
+            const action = addPayee(account);
+            expect(action.payload).toEqual(account);
         });
     });
 
