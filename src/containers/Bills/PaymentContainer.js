@@ -32,17 +32,19 @@ class PaymentContainer extends Component {
 
   submitPayment(e){
     e.preventDefault();
-    if(!isNaN(this.state.amount)){
+    if(!isNaN(this.state.amount) && this.state.amount > 0 && typeof this.state.date === 'number'){
       this.props.payBill(e.target.value, this.state);
       this.props.withdrawDeposit(parseFloat(this.state.amount), 'P');
       this.props.getBalance();
       this.setState({amount:0, date:''})
+      let inputs = document.getElementsByTagName('input');
+      for(var i = 0; i < inputs.length;i++){
+        inputs[i].value = '';
+      }
     }
-
   }
 
   render() {
-    console.log(this.props, 'This.props PaymentContainer~~~~');
     return (
       <Form>
           <Form.Group widths='equal'>
@@ -64,7 +66,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ payBill, getBalance, withdrawDeposit }, dispatch);
+  return bindActionCreators({ payBill, getBalance, withdrawDeposit}, dispatch);
 }
 
 

@@ -46,7 +46,9 @@ export function transaction_reducer(state = initialState, action) {
 
       case type.GET_BALANCE:
         let totalDepositFilter = state.accData.account.checking.filter(item => item.desc ==='Deposit').map(d => d.amount);
-        let totalWithdrawFilter = state.accData.account.checking.filter(item => item.desc ==='Withdraw').map(w => w.amount);
+        let totalWithdrawFilter = state.accData.account.checking.filter(item => {
+          return item.desc ==='Withdraw' || item.desc ==='Payment'
+        }).map(w => w.amount);
         let totalDep = totalDepositFilter.reduce((a,b) => a+b)
         let totalWith = totalWithdrawFilter.reduce((a,b) => a+b)
         return Object.assign({}, state, {

@@ -42,7 +42,7 @@ export const accData = {
       {
         type:'Credit Card',
         acc:'AmericanExpress 9876',
-        balance: 100.70
+        balance: 50.70
       },
       {
         type:'Credit Card',
@@ -50,9 +50,21 @@ export const accData = {
         balance: 220.25
       },
       {
+        type:'Credit Card',
+        acc:'Chase 7770',
+        balance: 218.54
+      },
+      {
         type:'Utility',
         acc:'T-mobile 2590',
         balance: 78.50
+      }
+    ],
+    scheduledPayment:[
+      {
+        date:1488396400,
+        acc:'Chase 7770',
+        balance: 50
       }
     ]
   }

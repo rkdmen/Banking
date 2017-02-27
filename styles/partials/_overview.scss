@@ -1,7 +1,4 @@
 //Overview
-.amount-input-field {
-  // margin: 0 auto;
-}
 
 .inputContainer {
   // margin 0 auto;
@@ -26,11 +23,16 @@
   color: $redWithdraw
 }
 
-
-.miniOverviewBalance {
+.BillsOverviewContainerSummary {
+  text-align:center !important;
+  max-width:200px;
+  min-height:130px;
+  max-height:160px;
   animation: ripple 1s ease-in-out;
 }
 
 .circleDiv {
   @include circleDiv(50px);
 }
+
+

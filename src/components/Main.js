@@ -3,8 +3,10 @@ import { Container, Grid, Segment } from 'semantic-ui-react';
 import OverviewContainer from '../containers/Overview/OverviewContainer';
 import MiniOverviewContainer from '../containers/Overview/MiniOverviewContainer';
 import DepositWithdrawContainer from '../containers/Overview/DepositWithdrawContainer';
+import { toTop } from '../helper/helper';
 
 class Main extends Component {
+
   render(){
     return (
       <Container>
@@ -30,7 +32,7 @@ class Main extends Component {
             </Grid.Column>
           </Grid.Row>
          </Grid>
-        <div className='circleDiv'>Top</div>
+        <div onClick={toTop} className='circleDiv'>Top</div>
       </Container>
       )
   }

@@ -11,7 +11,6 @@ class Navbar extends Component {
 
   handleItemClick(e, {name}){
     e.preventDefault();
-    console.log(name,'clicked')
     this.setState({ activeItem: name })
     hashHistory.push(`/${name}`);
 
@@ -31,7 +30,6 @@ class Navbar extends Component {
           <Menu.Item className='navLink' name='transfer' active={activeItem === 'transfer'} onClick={this.handleItemClick} />
           <Menu.Menu className='navLink' position='right'>
             <Menu.Item className='forDesktop'>
-
             </Menu.Item>
           </Menu.Menu>
         </Menu>

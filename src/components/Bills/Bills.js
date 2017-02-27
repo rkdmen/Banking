@@ -6,7 +6,6 @@ import PaymentContainer from '../../containers/Bills/PaymentContainer';
 
 class Bills extends Component {
   render(){
-    console.log(this.props, ' this prop in Bills Component')
     return (
           <Segment>
             <Grid>

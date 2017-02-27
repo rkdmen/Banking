@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { Button, Input } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import { withdrawDeposit, makeDeposit, getBalance } from '../../actions/actions';
-import { hashCode } from '../../helper/helper';
 
 class DepositWithdrawContainer extends Component {
   constructor(props) {
@@ -42,7 +41,7 @@ class DepositWithdrawContainer extends Component {
   }
 
   withdraw(){
-    let currentBalance = document.getElementsByClassName('miniOverviewBalance')[1].innerText;
+    let currentBalance = document.getElementsByClassName('miniOverviewBalance')[0].innerText;
     if(parseFloat(currentBalance) <= 0 || parseFloat(this.state.amount) > parseFloat(currentBalance)){
       let el = document.getElementsByClassName('warningRed');
       el[0].innerText = 'Not enough balance'

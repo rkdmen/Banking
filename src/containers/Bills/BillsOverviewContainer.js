@@ -3,22 +3,24 @@ import { connect } from 'react-redux';
 import { Container, Button, Segment, Input, Grid} from 'semantic-ui-react'
 import Bills from '../../components/Bills/Bills'
 import MiniOverviewContainer from '../Overview/MiniOverviewContainer';
+import ScheduleBillContainer from './ScheduleBillContainer';
+import { toTop } from '../../helper/helper';
 
-class BillsContainer extends Component {
+class BillsOverviewContainer extends Component {
   constructor(props) {
     super(props);
    }
 
   render() {
-    console.log(this.props, 'This.props BillsContainer');
     return (
-      <Container className='billsContainer'>
+      <Container className='BillsOverviewContainer'>
         <h1>Bills</h1>
         <Grid stretched stackable>
           <Grid.Column width={3}>
-            <Segment  className='billsContainerSummary'>
+            <Segment  className='BillsOverviewContainerSummary'>
               <MiniOverviewContainer />
             </Segment>
+              <ScheduleBillContainer />
           </Grid.Column>
           <Grid.Column width={13}>
             {
@@ -37,14 +39,13 @@ class BillsContainer extends Component {
             }
           </Grid.Column>
         </Grid>
-        <div className='circleDiv'>Top</div>
+        <div onClick={toTop} className='circleDiv'>Top</div>
       </Container>
       )
   }
 }
 
 function mapStateToProps(state) {
-  console.log(state, ' billContainer state')
   return {
     billsData:state.reducer.billsData
   }
@@ -52,4 +53,4 @@ function mapStateToProps(state) {
 
 
 
-export default connect(mapStateToProps, null)(BillsContainer)
+export default connect(mapStateToProps, null)(BillsOverviewContainer)

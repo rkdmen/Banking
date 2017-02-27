@@ -15,17 +15,19 @@ class MiniOverviewContainer extends Component {
 
     render(){
       return(
-        <div>
+        <div className='miniOverview'>
           <Header as='h3' textAlign='center'>
             <Header.Content>
               Summary
             </Header.Content>
           </Header>
-          <div className='centerText'>
+          <div>
             <hr/>
-            <p className='bold miniOverviewBalance'>
-              <span>Account Balance:&nbsp;</span>${!this.props.totalBalance?'Loading...': <span className='miniOverviewBalance'>{this.props.totalBalance.toFixed(2)}</span>}
-            </p>
+          <Header as='h5' textAlign='center'>
+            <Header.Content>
+              <span className='centerText'>Account Balance:&nbsp;</span>${!this.props.totalBalance?'Loading...': <span className='miniOverviewBalance'>{this.props.totalBalance.toFixed(2)}</span>}
+            </Header.Content>
+          </Header>
           </div>
         </div>
         )
