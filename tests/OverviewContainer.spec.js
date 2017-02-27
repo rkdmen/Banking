@@ -2,8 +2,6 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
 import { OverviewContainer } from '../src/containers/Overview/OverviewContainer';
-// import MiniOverviewContainer from '../containers/Overview/MiniOverviewContainer';
-// import DepositWithdrawContainer from '../containers/Overview/DepositWithdrawContainer';
 
 describe('Container: <OverviewContainer/>', function () {
 
