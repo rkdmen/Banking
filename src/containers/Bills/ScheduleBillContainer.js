@@ -16,7 +16,7 @@ class ScheduleBillContainer extends Component {
                 <Segment className='miniOverview' key={i}>
                   <ScheduleBill
                     acc={item.acc}
-                    balance={item.balance}
+                    balance={parseFloat(item.balance)}
                     date={item.date}
                   />
                 </Segment>

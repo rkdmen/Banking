@@ -85,7 +85,7 @@ class DepositWithdrawContainer extends Component {
 }
 
 DepositWithdrawContainer.propTypes = {
-    makeDeposit: React.PropTypes.number,
+    makeDeposit: React.PropTypes.func,
     withdrawDeposit: React.PropTypes.func,
     getBalance: React.PropTypes.func
 }

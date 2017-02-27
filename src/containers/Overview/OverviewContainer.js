@@ -44,7 +44,7 @@ class OverviewContainer extends Component {
 }
 
 OverviewContainer.propTypes = {
-    balanceHistory: React.PropTypes.number
+    balanceHistory: React.PropTypes.array
 }
 
 

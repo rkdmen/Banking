@@ -1,9 +1,8 @@
 import expect from 'expect';
 import * as types from '../src/constants/ActionTypes';
-import  { makeDeposit, withdrawDeposit, getBalance } from '../src/actions/actions';
+import  { makeDeposit, withdrawDeposit, getBalance, payBill, addPayee } from '../src/actions/actions';
 
 describe('Actions', () => {
-
     describe('makeDeposit', () => {
         it('has the ActionType Constant', () => {
             const action = makeDeposit();
@@ -12,13 +11,10 @@ describe('Actions', () => {
 
         it('has the correct payload', () => {
             let data = {
-                amount: 30,
-                balance : 2421.5,
-                date : 1488099721,
-                desc : 'Deposit',
-                id : "D7812544599"
+                amount: 100,
+                code : 'D'
             }
-            const action = makeDeposit(data);
+            const action = makeDeposit(100, 'D');
             expect(action.payload).toEqual(data);
         });
     });
@@ -31,13 +27,10 @@ describe('Actions', () => {
 
         it('has the correct payload', () => {
             let data = {
-                amount: 20,
-                balance : 2421.5,
-                date : 1488099721,
-                desc : 'Withdraw',
-                id : "D7812544599"
+                amount: 50,
+                code : 'W'
             }
-            const action = withdrawDeposit(data);
+            const action = withdrawDeposit(50, 'W');
             expect(action.payload).toEqual(data);
         });
     });
@@ -47,7 +40,21 @@ describe('Actions', () => {
             const action = getBalance();
             expect(action.type).toEqual(types.GET_BALANCE);
         });
-
     });
+
+    describe('payBill', () => {
+        it('has the ActionType Constant', () => {
+            const action = payBill();
+            expect(action.type).toEqual(types.PAY_BILL);
+        });
+    });
+
+    describe('addPayee', () => {
+        it('has the ActionType Constant', () => {
+            const action = addPayee();
+            expect(action.type).toEqual(types.ADD_PAYEE);
+        });
+    });
+
 });
 
