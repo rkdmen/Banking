@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { getBalance } from '../../actions/actions';
 
 
-class MiniOverviewContainer extends Component {
+export class MiniOverviewContainer extends Component {
    constructor(props) {
       super(props);
     }

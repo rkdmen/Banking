@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 import { getBalance } from '../../actions/actions';
 import Overview from '../../components/Overview/Overview';
 
-class OverviewContainer extends Component {
+export class OverviewContainer extends Component {
   constructor(props) {
     super(props);
    }
 
   render() {
     return (
-          <Table celled padded>
+          <Table className='table-container' celled padded>
             <Table.Header className='forDesktop'>
               <Table.Row>
                 <Table.HeaderCell textAlign='center' singleLine>Date</Table.HeaderCell>
